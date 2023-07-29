@@ -5,6 +5,11 @@ function App(): JSX.Element {
   return (
     <div className="container">
       <Versions></Versions>
+      <div>
+        <button onClick={() => {
+          window.api.installTheme();
+        }}>click</button>
+      </div>
 
       <svg className="hero-logo" viewBox="0 0 900 300">
         <use xlinkHref={`${icons}#electron`} />

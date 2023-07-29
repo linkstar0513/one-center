@@ -1,8 +1,15 @@
-import { contextBridge } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
+import fs from "node:fs"
 
 // Custom APIs for renderer
-const api = {}
+const api = {
+  installTheme: () => {
+    ipcRenderer.invoke("installTheme")
+  }
+}
+
+export type OneCenterApi = typeof api;
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise
